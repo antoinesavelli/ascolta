@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: git config core.hooksPath .githooks  # a fresh clone has no hooksPath; test 4 asserts it
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy
+      # The gpu, ollama and pipewire tests need this workstation; the clip tests skip without ASCOLTA_CLIPS.
+      - run: uv run pytest -q -m "not gpu and not ollama and not pipewire"

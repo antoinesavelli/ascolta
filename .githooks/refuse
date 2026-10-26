@@ -1,0 +1,9 @@
+# Paths pre-commit refuses (bash globs, one per line, any letter case). Call data and audio never enter git.
+transcripts/*
+*.opus
+*.ogg
+*.wav
+*.flac
+*.mp3
+*.m4a
+*.webm

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(//private/transcripts/**)",
+      "Edit(//private/transcripts/**)",
+      "mcp__terminal"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false
+  }
+}

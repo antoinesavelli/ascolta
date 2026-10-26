@@ -1,0 +1,5 @@
+# Owns every model name, pin and VRAM need (docs/DESIGN.md, Models). Changing a line needs the user.
+# model-routing.yaml's dotfile entries read the `name` of each line with a regex: keep the flow style.
+transcriber: {name: Systran/faster-whisper-large-v3, revision: edaa852ec7e145841d8ffdb056a99866b5f0a478, vram_gb: 4.6}
+translator: {name: mistral-small3.2:24b, digest: 5a408ab55df5c1b5cf46533c368813b30bf9e4d8fc39263bf2a3338cfa3b895b, num_ctx: 4096, vram_gb: 17}
+summarizer: {name: gpt-oss:20b-64k, digest: 36f80c24f1036e0a75072dad7e899938e97f8a143c11b9282047bb61aa2e4705, num_ctx: 65536, vram_gb: 12}
