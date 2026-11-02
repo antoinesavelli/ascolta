@@ -1,6 +1,6 @@
 # Conventions
 
-The shared code and test conventions (`/private/system-library/AGENT_DOCTRINE.md`, *Code conventions*
+The shared code and test conventions (`AGENT_DOCTRINE.md` in the private system-library, *Code conventions*
 and *Testing*), plus what ascolta adds.
 
 - **One process per stage.** A stage is `ascolta <stage> <call-dir>`, run in sequence by `ascolta process`;

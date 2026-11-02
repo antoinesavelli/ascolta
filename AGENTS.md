@@ -16,7 +16,7 @@ inside the pipeline do. Call data lives in the folder `ASCOLTA_DATA` points at (
 folder outside this repo), never in the repo.
 
 - Never read, list, grep, copy or print anything in that folder (`transcripts/`), and never run the pipeline
-  on it. `.claude/settings.json` denies the Read and Edit tools there; that is not the whole boundary
+  on it. `.claude/settings.local.json` denies the Read and Edit tools there; that is not the whole boundary
   (`docs/DESIGN.md`, Privacy and agent access).
 - Debug only with public or synthetic audio: the clips in the folder `ASCOLTA_CLIPS` names (on this workstation a
   folder outside this repo), with `ASCOLTA_DATA` set to a temporary folder.
@@ -77,7 +77,7 @@ a paid or heavy job · *Skills fix themselves* if a skill misfires · when a gua
 | plan or run a change (the loop here, the Definition of Done) | [`docs/agents/LOOP.md`](docs/agents/LOOP.md) |
 | write code or a test | [`docs/agents/CONVENTIONS.md`](docs/agents/CONVENTIONS.md) |
 | change behavior the spec covers | [`docs/DESIGN.md`](docs/DESIGN.md) and [`docs/DECISIONS.md`](docs/DECISIONS.md) |
-| touch call data, `.githooks/`, `.claude/settings.json` or the pipeline's logging | `docs/DESIGN.md`, Privacy and agent access and Git safety |
+| touch call data, `.githooks/`, `.claude/settings.json`, `.claude/settings.local.json` or the pipeline's logging | `docs/DESIGN.md`, Privacy and agent access and Git safety |
 | delegate work to another model, edit a skill, or a guard fails | `AGENT_DOCTRINE.md` in system-library |
 
 ## Area maps

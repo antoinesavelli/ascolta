@@ -39,6 +39,6 @@ session.
 | `tests/` | Tests; call data is never used, only public or synthetic audio |
 | `pyproject.toml` · `uv.lock` | Package and tool config · locked dependencies |
 | `.githooks/` | `pre-commit` refuses credentials and `.githooks/refuse` paths (transcripts, audio); `pre-push` runs gitleaks on full history |
-| `.claude/settings.json` | Claude Code project settings: sandbox on, transcript Read/Edit denied, terminal server denied |
+| `.claude/settings.json` | Claude Code project settings: sandbox on, terminal server denied. The untracked `.claude/settings.local.json` denies transcript Read/Edit |
 | `.github/workflows/ci.yml` | `uv sync --locked`, ruff, ruff format, mypy, pytest (workstation-only tests deselected) |
 | `LICENSE` | MIT |

@@ -228,9 +228,10 @@ A project Read-deny rule alone does not enforce this. Per the Claude Code docs i
 Layers, the hard one first:
 
 1. **Sandbox in this repo:** `.claude/settings.json` sets
-   `sandbox: {enabled: true, failIfUnavailable: true, allowUnsandboxedCommands: false}`. It denies `Read`
-   and `Edit` on the call-data folder's `transcripts/**`, and denies the whole `mcp__terminal`
-   server (since 2026-10-25; `read_terminal` alone left `run_in_terminal` and `stop_terminal_tab` open).
+   `sandbox: {enabled: true, failIfUnavailable: true, allowUnsandboxedCommands: false}` and denies the whole
+   `mcp__terminal` server (since 2026-10-25; `read_terminal` alone left `run_in_terminal` and
+   `stop_terminal_tab` open). The untracked `.claude/settings.local.json` denies `Read` and `Edit` on the
+   call-data folder's `transcripts/**`, so that path stays out of the public repo (since 2026-11-02).
    - The deny paths are enforced at the OS level: bubblewrap mounts an empty tmpfs over `transcripts/`, so
      `grep -r`, `python` and the pipeline see nothing (proved 2026-10-24, layer 6). The same sandbox also
      blocks `/dev/nvidia*`, `localhost:11434` and the PipeWire socket.
@@ -287,7 +288,8 @@ The repo is public (decision D-009), so call data and audio stay out of it by re
   - `.githooks/pre-push` runs `gitleaks git` over the whole history and blocks the push on a finding or a
     missing gitleaks.
 - **Agents:** creating the remote and every push are ask-first, the owner's call (`AGENTS.md`). The
-  repo's `.claude/settings.json` keeps the transcript Read/Edit denies and the `mcp__terminal` deny.
+  repo's `.claude/settings.json` keeps the `mcp__terminal` deny, and the untracked
+  `.claude/settings.local.json` the transcript Read/Edit denies.
 - **Test 4 checks:**
   - `git ls-files` holds none of the ignored paths, and `git check-ignore` matches a sample call path.
   - `git config core.hooksPath` is `.githooks`.
