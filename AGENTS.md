@@ -24,7 +24,7 @@ folder outside this repo), never in the repo.
 - The pipeline never prints transcript text: logs, stdout, stderr and notifications carry IDs, counts,
   timings and ⚠ counts only. Keep it that way; the tests below pin it.
 
-<!-- doctrine-core:begin (source: /private/system-library/AGENT_DOCTRINE_CORE.md; edit there, then run tools/check.sh agents) -->
+<!-- doctrine-core:begin (source: AGENT_DOCTRINE_CORE.md in system-library; edit there, then run tools/check.sh agents) -->
 ## Operating doctrine (core)
 
 Loop: OBSERVE real state (the docs/map and the actual code or system, never memory of a prior
@@ -64,7 +64,7 @@ staged. Found a hunk you didn't write? Stop and find out whose it is.
 
 **Context is spend.** Every turn re-reads the whole conversation: batch independent calls in one turn, grep before reading and read only the lines needed, cap command output (`head`, `grep -m`, `--stat`). **Don't grow a window past its task:** separable work (a follow-up, an unrelated finding, the next phase, a heavy read or search) starts in a fresh context, not here — call `spawn_task` (the chip the user clicks to open a new session; its prompt must stand alone) or delegate to a subagent; where neither exists, offer a handoff prompt at the task boundary.
 
-Full doctrine, read the section on demand (`/private/system-library/AGENT_DOCTRINE.md`):
+Full doctrine, read the section on demand (`AGENT_DOCTRINE.md` in system-library; `~/CLAUDE.md` gives its path):
 *Code conventions* and *Testing* before code, *Writing* before a doc · *Concurrent sessions* before
 you stage or commit · *Before you ACT* and *Subagents* before delegating · *Cost and resources* before
 a paid or heavy job · *Skills fix themselves* if a skill misfires · when a guard fails.
@@ -78,7 +78,7 @@ a paid or heavy job · *Skills fix themselves* if a skill misfires · when a gua
 | write code or a test | [`docs/agents/CONVENTIONS.md`](docs/agents/CONVENTIONS.md) |
 | change behavior the spec covers | [`docs/DESIGN.md`](docs/DESIGN.md) and [`docs/DECISIONS.md`](docs/DECISIONS.md) |
 | touch call data, `.githooks/`, `.claude/settings.json` or the pipeline's logging | `docs/DESIGN.md`, Privacy and agent access and Git safety |
-| delegate work to another model, edit a skill, or a guard fails | `/private/system-library/AGENT_DOCTRINE.md` |
+| delegate work to another model, edit a skill, or a guard fails | `AGENT_DOCTRINE.md` in system-library |
 
 ## Area maps
 
